@@ -12,28 +12,28 @@ module fan_top(
     wire [11:0] distance;
     wire motor_off, motor_sw;
   
-    led_brightness(.clk(clk), //LED밝기 모듈
-                   .reset_p(reset_p),
-                   .btn(btn[0]),
-                   .led_pwm_o(led_pwm_o)); //JA1
+    led_brightness led_brightness(.clk(clk), //LED밝기 모듈
+                                  .reset_p(reset_p),
+                                  .btn(btn[0]),
+                                  .led_pwm_o(led_pwm_o)); //JA1
   
-    dc_motor_speed(.clk(clk), //모터 스피드 모듈
-                   .reset_p(reset_p),
-                   .motor_off(motor_off),
-                   .distance(distance),
-                   .btn(btn[1]),
-                   .motor_pwm_o(motor_pwm_o),
-                   .motor_led(motor_led),
-                   .motor_sw(motor_sw)); //JA2
+    dc_motor_speed dc_motor_speed(.clk(clk), //모터 스피드 모듈
+                                  .reset_p(reset_p),
+                                  .motor_off(motor_off),
+                                  .distance(distance),
+                                  .btn(btn[1]),
+                                  .motor_pwm_o(motor_pwm_o),
+                                  .motor_led(motor_led),
+                                  .motor_sw(motor_sw)); //JA2
   
-    fan_timer( .clk(clk),
-               .reset_p(reset_p),
-               .motor_sw(motor_sw),
-               .btn_str(btn[2]),
-               .motor_off(motor_off),
-               .timer_led(timer_led),
-               .com(com),
-               .seg_7(seg_7));
+    fan_timer fan_timer( .clk(clk),
+                         .reset_p(reset_p),
+                         .motor_sw(motor_sw),
+                         .btn_str(btn[2]),
+                         .motor_off(motor_off),
+                         .timer_led(timer_led),
+                         .com(com),
+                         .seg_7(seg_7));
   
     ultra_sonic_prof ult(clk, reset_p, echo, trigger, distance);
   
