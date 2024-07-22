@@ -22,7 +22,7 @@ bool is_empty(Circular c)
 
 bool is_full(Circular c)
 {
-    // Å¥°¡ °¡µæ ÀÖÀ¸¸é tail+1¿¡¼­ Å¥»çÀÌÁî·Î ³ª´«°ª head °°´Ù
+    // íê°€ ê°€ë“ ìžˆìœ¼ë©´ tail+1ì—ì„œ íì‚¬ì´ì¦ˆë¡œ ë‚˜ëˆˆê°’ head ê°™ë‹¤
     return (c->head == ((c->tail + 1) % MAX_CIRCULAR_SIZE));
 }
 
