@@ -17,7 +17,7 @@ module stop_watch_csec(
     clock_div_10 csec_clk(clk_start, reset_p, clk_msec, clk_csec);
     clock_div_1000 sec_clk(clk_start, reset_p, clk_msec, clk_sec);
     
-    T_flip_flop_p tff_start(.clk(clk), .reset_p(reset_p), .t(btn_pedge[0]), .q(start_stop));
+    T_flip_flop_p tff_start(.clk(clk), .reset_p(reset_p), .t(btn_pedge[1]), .q(start_stop));
     
     assign clk_start = start_stop ? clk : 0;
     
