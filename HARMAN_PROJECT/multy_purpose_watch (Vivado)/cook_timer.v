@@ -4,6 +4,12 @@ module cook_timer (
     input [3:0] btn,
     output [3:0] com,
     output [7:0] seg_7);
+
+    //동작
+    //start_stop=0일 때는 set_time 상태를 출력하고 있다.
+    //btn[1]과 btn[2]을 눌러 초와 분을 세팅한다.
+    //btn[0]을 눌러 세팅한 시간만큼 타이머가 작동한다.
+    //설정한 시간이 지나 알람이 울리면 btn[3]을 눌러 알람을 끈다. 
    
    wire btn_start, inc_sec, inc_min, alarm_off; 
    wire [3:0] set_sec1, set_sec10, set_min1, set_min10;
