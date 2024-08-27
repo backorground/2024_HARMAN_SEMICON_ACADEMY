@@ -5,6 +5,15 @@ module loadable_watch(
     output [15:0] value
 );
 
+    //동작
+    //현재 시간이 흘러가고 있다.
+    //set_mode=0이므로 FND에 현재 시간이 출력되고 있다.
+    //btn[0]을 눌러서 set_mode를 토글 시킬 수 있다.
+    //set_mode가 바뀌는 순간(0->1: set, 1->0:cur)의 edge에서 set_time을 불러오고, cur_time을 불러온다.
+    // *loadable_counter_dec_60에서 load_enable=1일 때 설정한 값을 가져온다.
+    //clk_time을 btn_edge로 받아 설정한 시간을 현재 시간으로 받아온다. 
+    //set_mode가 1에서 0으로 돌아오는 순간 설정한 값부터 시간이 흘러간다.
+    
     wire clk_usec, clk_msec, clk_sec, clk_min;
     wire sec_edge, min_edge;
     wire set_mode;
